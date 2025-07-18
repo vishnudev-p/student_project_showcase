@@ -17,9 +17,38 @@
             margin-left: 1rem;
         }
         .navbar-dark-mode { background-color: #232323 !important; }
+        /* Splash screen styles */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #181818;
+            color: #fff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+        #splash-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+        #splash-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+<div id="splash-screen">
+    <div id="splash-logo">Student Project Showcase</div>
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4" id="mainNavbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Student Project Showcase</a>
@@ -55,6 +84,12 @@
     </div>
 </div>
 <script>
+    // Splash screen logic
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.getElementById('splash-screen').classList.add('hide');
+        }, 2000); // 2 seconds
+    });
     const toggleBtn = document.getElementById('toggleMode');
     const body = document.body;
     const navbar = document.getElementById('mainNavbar');
