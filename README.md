@@ -66,4 +66,3 @@ A simple Django web application for showcasing student projects. Admins can add,
 - For any issues, refer to the Django documentation: https://docs.djangoproject.com/ 
 
 
-to_remove = ["Mechatronics","Mining Engineering","BTech Instrumentation Engineering""ME""Instrumentation Engineering"]
